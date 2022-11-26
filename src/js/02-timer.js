@@ -19,7 +19,11 @@ function convertMs(ms) {
   const seconds = addLeadingZero(Math.floor((((ms % day) % hour) % minute) / second));
 
   return { days, hours, minutes, seconds };
-}
+};
+
+function addLeadingZero(value) {
+    return String(value).padStart(2, '0');
+};
 
 const refs = {
     timerBtn: document.querySelector('[data-start]'),
@@ -62,17 +66,14 @@ function onStartTimer() {
 
     timerId = setInterval(() => {
         refs.timerBtn.disabled = true;
+        
         currentDate = Date.now();
         const deltaTime = startDate - currentDate;
-        const { days, hours, minutes, seconds } = convertMs(deltaTime);
-        console.log({ days, hours, minutes, seconds });
-        updateTimerValues({ days, hours, minutes, seconds });
+        const time = convertMs(deltaTime);
+
+        updateTimerValues(time);
         stopInterval(deltaTime);
     }, 1000);
-};
-
-function addLeadingZero(value) {
-    return String(value).padStart(2, '0');
 };
 
 function stopInterval(deltaTime) {
