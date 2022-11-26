@@ -16,3 +16,37 @@ img {
   display: block;
   max-width: 100%;
 }
+
+.timer-btn {
+  display: inline-flex;
+  margin-left: 4px;
+  margin-right: 4px;
+  padding: 5px 10px;
+  
+  font-size: 12px;
+  text-transform: uppercase;
+  
+  cursor: pointer;
+
+  border: 0;
+  border-radius: 3px;
+}
+
+.timer {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+
+  font-size: 24px;
+  text-align: center;
+}
+
+.label {
+  font-size: 12px;
+  text-transform: uppercase;
+}
