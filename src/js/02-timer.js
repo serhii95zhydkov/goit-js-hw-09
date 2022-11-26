@@ -38,7 +38,7 @@ const options = {
     onClose(selectedDates) {
         
         if (selectedDates[0] <= options.defaultDate) {
-            window.alert("Please choose a date in the future");
+            Notify.failure('Please chose a date in the future');
         }
         else {
             refs.timerBtn.disabled = false;
