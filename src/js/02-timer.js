@@ -23,7 +23,10 @@ function convertMs(ms) {
 
 const refs = {
     timerBtn: document.querySelector('[data-start]'),
-    timerValue: document.querySelector('.value'),
+    timerDays: document.querySelector('[data-days]'),
+    timerHours: document.querySelector('[data-hours]'),
+    timerMinutes: document.querySelector('[data-minutes]'),
+    timerSeconds: document.querySelector('[data-seconds]'),
 }
 
 let timerId = null;
@@ -63,7 +66,7 @@ function onStartTimer() {
         const deltaTime = startDate - currentDate;
         const { days, hours, minutes, seconds } = convertMs(deltaTime);
         console.log({ days, hours, minutes, seconds });
-        updateTimerValue({ days, hours, minutes, seconds });
+        updateTimerValues({ days, hours, minutes, seconds });
         stopInterval(deltaTime);
     }, 1000);
 };
@@ -78,6 +81,9 @@ function stopInterval(deltaTime) {
     };
 };
 
-function updateTimerValue({ days, hours, minutes, seconds }) {
-    refs.timerValue.textContent = `${days}:${hours}:${minutes}:${seconds}`;
+function updateTimerValues({ days, hours, minutes, seconds }) {
+    refs.timerDays.textContent = `${days}`;
+    refs.timerHours.textContent = `${hours}`;
+    refs.timerMinutes.textContent = `${minutes}`;
+    refs.timerSeconds.textContent = `${seconds}`;
 };
