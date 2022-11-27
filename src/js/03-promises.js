@@ -23,6 +23,7 @@ function onCallCreatePromise(e) {
       });
     delay += step;
   };
+  e.target.reset();
 };
 
 function createPromise(position, delay) {
